@@ -4,16 +4,19 @@ using System.Linq;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework.Content;
 
 namespace Graph.Core.Manager
 {
 
-	public abstract class BaseContentManager<T> :IContentManager<T>
+	public class BaseContentManager<T> :IContentManager<T>
 	{
+		protected ContentManager ContentManager { get; }
 		protected Dictionary<string, T> Items { get; set; }
 
-		protected BaseContentManager() {
-			 InitializeItems();
+		public BaseContentManager(ContentManager contentManager) {
+			ContentManager = contentManager;
+			InitializeItems();
 		}
 		public void Dispose() {
 			Items.Clear();
@@ -28,7 +31,13 @@ namespace Graph.Core.Manager
 		}
 
 		public virtual T Get(string name) {
-			return Items[name];
+			if (Items.ContainsKey(name))
+			{
+				return Items[name];
+			}
+			var item = ContentManager.Load<T>(name);
+			Items.Add(name, item);
+			return item;
 		}
 
 		public virtual Task<T> GetAsync(string name) {

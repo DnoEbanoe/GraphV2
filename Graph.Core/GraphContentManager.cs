@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
+using Graph.Core.Provider;
 using Microsoft.Xna.Framework.Content;
 
 namespace Graph.Core {
@@ -13,19 +14,10 @@ namespace Graph.Core {
 				if (config.Length != 2) {
 					throw new FormatException(assetName);
 				}
-				var methodName = "Get";
 				var providerName = config[0];
 				var textureName = config[1];
-				Type providerType = Type.GetType(providerName);
-				if (providerType == null) {
-					throw new NullReferenceException(providerName);
-				}
-				object providerInstance = Activator.CreateInstance(providerType, null);
-				MethodInfo methodInfo = providerType.GetMethod(methodName);
-				if (methodInfo == null) {
-					throw new NullReferenceException(methodName);
-				}
-				return (Stream)methodInfo.Invoke(providerInstance, new object[] { textureName });
+				var provider = ProviderFactory.Create(providerName);
+				return provider.Get(textureName);
 			}
 			return base.OpenStream(assetName);
 		}

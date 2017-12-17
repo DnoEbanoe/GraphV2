@@ -45,10 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseControl.cs" />
     <Compile Include="Button\Button.cs" />
     <Compile Include="Button\ButtonEventArgs.cs" />
-    <Compile Include="Button\IButton.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Container\Container.cs" />
     <Compile Include="IControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -58,5 +59,6 @@
       <Name>Graph.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
