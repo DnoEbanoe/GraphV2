@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DrowOptions.cs" />
     <Compile Include="GameEngine.cs" />
     <Compile Include="GameManager.cs" />
     <Compile Include="Helper\ColliderHelper.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="GraphContentManager.cs" />
     <Compile Include="Provider\ProviderFactory.cs" />
     <Compile Include="Provider\TextureContentProvider.cs" />
+    <Compile Include="UpdateOptions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Graph.Data\Graph.Data.csproj">

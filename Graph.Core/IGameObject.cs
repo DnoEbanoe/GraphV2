@@ -12,8 +12,8 @@ namespace Graph.Core {
 		Vector2 Position { get; set; }
 		Vector2 Size { get; set; }
 		GameManager GameManager { get; set; }
-		void Drow(GameTime gameTime);
-		void Update(GameTime gameTime);
+		void Drow(GameTime gameTime, DrowOptions options);
+		void Update(GameTime gameTime, UpdateOptions options);
 	}
 
 }

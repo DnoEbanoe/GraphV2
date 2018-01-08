@@ -50,8 +50,15 @@
     <Compile Include="Button\ButtonEventArgs.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Container\Container.cs" />
+    <Compile Include="Container\ContentAlign.cs" />
+    <Compile Include="Container\Margin.cs" />
+    <Compile Include="Cursor\Cursor.cs" />
     <Compile Include="IControl.cs" />
+    <Compile Include="Label\Label.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextEdit\TextEdit.cs" />
+    <Compile Include="Texture\ColorTexture.cs" />
+    <Compile Include="Texture\BaseTexture.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Graph.Core\Graph.Core.csproj">

@@ -10,7 +10,7 @@ namespace Graph.Core.Provider {
 		static Dictionary<string, IContentProvider> providers =
 			new Dictionary<string, IContentProvider> {
 				{"font", new FontContentProvider()},
-				{"texture", new TextureContentProvider()}
+				{"image", new TextureContentProvider()}
 			};
 
 		public static IContentProvider Create(string name) {

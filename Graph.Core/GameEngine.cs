@@ -24,13 +24,13 @@ namespace Graph.Core {
 
 		public void Update(GameTime gameTime) {
 			foreach (var gameObject in GameObjects) {
-				gameObject.Update(gameTime);
+				gameObject.Update(gameTime, UpdateOptions.Zero);
 			}
 		}
 
 		public void Drow(GameTime gameTime) {
 			foreach (var gameObject in GameObjects) {
-				gameObject.Drow(gameTime);
+				gameObject.Drow(gameTime, DrowOptions.Zero);
 			}
 		}
 	}

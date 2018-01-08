@@ -16,6 +16,7 @@ namespace Graph.Core {
 		public SpriteBatch SpriteBatch { get; set; }
 		public ContentManager ContentManager { get; set; }
 		public IContentManager<SpriteFont> FonsManager { get; set; }
+		public IContentManager<Texture2D> TextureManager { get; set; }
 		public KeyboardState KeyboardState
 		{
 			get { return Keyboard.GetState(); }
