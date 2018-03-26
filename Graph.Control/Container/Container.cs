@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Graph.Control.Texture;
 using Graph.Core;
 using Graph.Core.Helper;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace Graph.Control.Container {
 
@@ -44,8 +39,9 @@ namespace Graph.Control.Container {
 		}
 
 		public override void Drow(GameTime gameTime, DrowOptions options) {
-			if (BackgroundTexture != null) {
-				GameManager.SpriteBatch.Draw(BackgroundTexture.GetTexture(this.GetRectangle()), this.GetRectangle(), null,
+			var rectangle = this.GetRectangle();
+			if (BackgroundTexture != null && rectangle != Rectangle.Empty) {
+				GameManager.SpriteBatch.Draw(BackgroundTexture.GetTexture(rectangle), this.GetRectangle(), null,
 					Color.White);
 			}
 			foreach (var item in Items) {
@@ -55,7 +51,7 @@ namespace Graph.Control.Container {
 		}
 
 		public override void Update(GameTime gameTime, UpdateOptions options) {
-			var itemStartPosition = Position + new Vector2(ItemMargin.Left, ItemMargin.Top);
+			var itemStartPosition = Position + new Vector2(ItemMargin.Left + Margin.Left, ItemMargin.Top + Margin.Top);
 			foreach (var item in Items) {
 				item.Update(gameTime, options + new UpdateOptions(){Position = itemStartPosition});
 			}

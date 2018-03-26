@@ -1,6 +1,7 @@
 ﻿using Graph.Control.Button;
 using Graph.Control.Container;
 using Graph.Control.Cursor;
+using Graph.Control.Line;
 using Graph.Control.TextEdit;
 using Graph.Control.Texture;
 using Graph.Core;
@@ -27,19 +28,22 @@ namespace Graph {
 
 		protected override void LoadContent() {
 			GameManager.SpriteBatch = new SpriteBatch(GraphicsDevice);
-			var container = new Container(GameManager){AutoSize = true};
-			//container.Position = new Vector2(50, 50);
-			container.BackgroundTexture = new ColorTexture(GameManager, Color.Black);
-			var btn = new Button(GameManager) {
-				Text = "Azazazaz",
-				Margin = new Margin(10),
-				BackgroundTexture = new ColorTexture(GameManager, Color.Blue),
-				AutoSize = true
-			};
-			btn.Click += (button, args) => { btn.Text += "A"; };
-			container.Add(btn);
+			//var container = new Container(GameManager){AutoSize = true};
+			////container.Position = new Vector2(50, 50);
+			//container.BackgroundTexture = new ColorTexture(GameManager, Color.Black);
+			//var btn = new Button(GameManager) {
+			//	Text = "Azazazaz",
+			//	Margin = new Margin(5,15,15,15),
+			//	BackgroundTexture = new ColorTexture(GameManager, Color.Blue),
+			//	AutoSize = true
+			//};
+			//btn.Click += (button, args) => { btn.Text += "A"; };
+			//_gameEngine.Add(btn);
+			//container.Add(btn);
 			//container.Add(new TextEdit(GameManager) { Text = "Azazazazaz"});
-			_gameEngine.Add(container);
+			Line line = new Line(GameManager){};
+			line.Start = new Vector2(50,100);
+			_gameEngine.Add(line);
 			_gameEngine.Add(new Cursor(GameManager));
 		}
 

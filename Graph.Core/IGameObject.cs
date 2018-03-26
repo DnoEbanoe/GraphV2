@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 
 namespace Graph.Core {
 
@@ -15,5 +10,4 @@ namespace Graph.Core {
 		void Drow(GameTime gameTime, DrowOptions options);
 		void Update(GameTime gameTime, UpdateOptions options);
 	}
-
 }

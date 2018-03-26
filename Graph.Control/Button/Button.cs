@@ -2,22 +2,21 @@
 using Graph.Core;
 using Graph.Core.Helper;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace Graph.Control.Button {
 
 	public class Button : Container.Container {
 		private bool _isClick;
-		public string Text
-		{
+
+		public string Text {
 			get => Label.Text;
 			set => Label.Text = value;
 		}
 
 		private Label.Label Label { get; set; }
-		public Button(GameManager manager): base(manager)
-		{
+
+		public Button(GameManager manager) : base(manager) {
 			this.Add(Label = new Label.Label(GameManager));
 		}
 
@@ -25,8 +24,8 @@ namespace Graph.Control.Button {
 			base.Update(gameTime, options);
 			var mouseState = GameManager.MouseState;
 			if (!_isClick &&
-				mouseState.LeftButton == ButtonState.Pressed &&
-				GameManager.MousePosition.Collide(this.GetRectangle())) {
+			    mouseState.LeftButton == ButtonState.Pressed &&
+			    GameManager.MousePosition.Collide(this.GetRectangle())) {
 				OnClick();
 				_isClick = true;
 				return;
@@ -46,5 +45,4 @@ namespace Graph.Control.Button {
 			Click?.Invoke(arg1, arg2);
 		}
 	}
-
 }
