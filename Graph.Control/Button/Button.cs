@@ -14,10 +14,16 @@ namespace Graph.Control.Button {
 			set => Label.Text = value;
 		}
 
+		public Color TextColor {
+			get { return Label == null ? Color.White : Label.Color; }
+			set { if (Label != null) Label.Color = value; }
+		}
+
 		private Label.Label Label { get; set; }
 
 		public Button(GameManager manager) : base(manager) {
-			this.Add(Label = new Label.Label(GameManager));
+			Label = new Label.Label(GameManager){Color = this.TextColor};
+			this.Add(Label);
 		}
 
 		public override void Update(GameTime gameTime, UpdateOptions options) {

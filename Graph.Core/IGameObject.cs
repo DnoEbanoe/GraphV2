@@ -3,7 +3,6 @@
 namespace Graph.Core {
 
 	public interface IGameObject {
-		Color Color { get; set; }
 		Vector2 Position { get; set; }
 		Vector2 Size { get; set; }
 		GameManager GameManager { get; set; }

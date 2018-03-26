@@ -14,11 +14,12 @@ namespace Graph.Control.Line
 	{
 		public Vector2 Start { get; set; }
 		public Vector2? End { get; set; }
-		private Microsoft.Xna.Framework.Graphics.Texture2D Texture { get; set; }
+		public int Width { get; set; }
+		public virtual Color Color { get; set; }
+		private Texture2D Texture { get; set; }
 		public Line(GameManager gameManager) : base(gameManager) {
 			Texture = new Texture2D(gameManager.GraphicsDeviceManager.GraphicsDevice, 1, 1);
-			Texture.SetData<Color>(
-				new Color[] { Color.White });
+			Texture.SetData(new[] { Color.White });
 		}
 
 		public override void Drow(GameTime gameTime, DrowOptions options) {
@@ -48,9 +49,9 @@ namespace Graph.Control.Line
 					(int)start.X,
 					(int)start.Y,
 					(int)edge.Length(), //sb will strech the texture to fill this rectangle
-					1), //width of line, change this to make thicker line
+					Width), //width of line, change this to make thicker line
 				null,
-				Color.Red, //colour of line
+				this.Color, //colour of line
 				angle,     //angle of line (calulated above)
 				new Vector2(0, 0), // point in line about which to rotate
 				SpriteEffects.None,

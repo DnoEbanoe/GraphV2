@@ -24,7 +24,6 @@ namespace Graph.Control
 		public virtual void Update(GameTime gameTime, UpdateOptions options) {
 			UpdateOptions = options;
 		}
-		public virtual Color Color { get; set; }
 
 		public virtual Vector2 Position {
 			get { return _position + UpdateOptions.Position; }
@@ -38,7 +37,6 @@ namespace Graph.Control
 
 		public BaseControl(GameManager gameManager) {
 			GameManager = gameManager;
-			Color = Color.White;
 			Position = Vector2.Zero;
 			Size = Vector2.Zero;
 		}

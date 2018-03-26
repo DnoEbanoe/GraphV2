@@ -14,6 +14,7 @@ namespace Graph.Control.Label
 	{
 		public string Text { get; set; }
 		public SpriteFont Font { get; set; }
+		public virtual Color Color { get; set; }
 		public override Vector2 Size {
 			get { return Font.MeasureString(Text??string.Empty); }
 		}
