@@ -19,7 +19,7 @@ namespace Graph.Control.Label
 		}
 
 		public Label(GameManager gameManager) : base(gameManager) {
-			Font = GameManager.FonsManager.Get("font:test");
+			Font = GameManager.FonsManager.Get("font:standart");
 		}
 
 		public override void Drow(GameTime gameTime, DrowOptions options) {

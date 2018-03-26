@@ -17,7 +17,8 @@ namespace Graph.Core {
 				var providerName = config[0];
 				var textureName = config[1];
 				var provider = ProviderFactory.Create(providerName);
-				return provider.Get(textureName);
+                var stream = provider.Get(textureName);
+                return stream;
 			}
 			return base.OpenStream(assetName);
 		}

@@ -9,7 +9,6 @@ using Microsoft.Xna.Framework.Input;
 namespace Graph.Control.TextEdit {
 
 	public class TextEdit : Container.Container {
-		protected GameManager GameManager { get; }
 		private float _sleapTime = 100;
 		private float _oldClickTime;
 		private Label.Label Label { get; set; }

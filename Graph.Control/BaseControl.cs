@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework;
 namespace Graph.Control
 {
 
-	public class BaseControl: IControl
+	public abstract class BaseControl: IControl
 	{
 		private Vector2 _position;
 		private Vector2 _size;
