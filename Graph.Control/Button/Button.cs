@@ -16,13 +16,15 @@ namespace Graph.Control.Button {
 
 		public Color TextColor {
 			get { return Label == null ? Color.White : Label.Color; }
-			set { if (Label != null) Label.Color = value; }
+			set {
+				if (Label != null) Label.Color = value;
+			}
 		}
 
 		private Label.Label Label { get; set; }
 
 		public Button(GameManager manager) : base(manager) {
-			Label = new Label.Label(GameManager){Color = this.TextColor};
+			Label = new Label.Label(GameManager) {Color = this.TextColor};
 			this.Add(Label);
 		}
 
@@ -36,6 +38,7 @@ namespace Graph.Control.Button {
 				_isClick = true;
 				return;
 			}
+
 			if (mouseState.LeftButton == ButtonState.Released) {
 				_isClick = false;
 			}

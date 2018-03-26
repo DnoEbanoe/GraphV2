@@ -49,7 +49,6 @@
     <Compile Include="Border.cs" />
     <Compile Include="Button\Button.cs" />
     <Compile Include="Button\ButtonEventArgs.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Container\Container.cs" />
     <Compile Include="Container\ContentAlign.cs" />
     <Compile Include="Container\Margin.cs" />

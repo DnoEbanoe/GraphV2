@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 using Graph.Core;
 using Microsoft.Xna.Framework;
 
-namespace Graph.Control
-{
+namespace Graph.Control {
 
-	public abstract class BaseControl: IControl
-	{
+	public abstract class BaseControl : IControl {
 		private Vector2 _position;
 		private Vector2 _size;
 		public GameManager GameManager { get; set; }

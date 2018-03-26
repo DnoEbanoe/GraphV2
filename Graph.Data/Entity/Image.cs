@@ -1,8 +1,6 @@
-﻿namespace Graph.Data.Entity
-{
+﻿namespace Graph.Data.Entity {
 
-    public class Image: BaseDbItem {
+	public class Image : BaseDbItem {
 		public byte[] File { get; set; }
 	}
-
 }

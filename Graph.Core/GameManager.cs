@@ -17,12 +17,12 @@ namespace Graph.Core {
 		public ContentManager ContentManager { get; set; }
 		public IContentManager<SpriteFont> FonsManager { get; set; }
 		public IContentManager<Texture2D> TextureManager { get; set; }
-		public KeyboardState KeyboardState
-		{
+
+		public KeyboardState KeyboardState {
 			get { return Keyboard.GetState(); }
 		}
-		public MouseState MouseState
-		{
+
+		public MouseState MouseState {
 			get { return Mouse.GetState(); }
 		}
 
@@ -34,5 +34,4 @@ namespace Graph.Core {
 			}
 		}
 	}
-
 }

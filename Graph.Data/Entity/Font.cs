@@ -1,8 +1,6 @@
-﻿namespace Graph.Data.Entity
-{
+﻿namespace Graph.Data.Entity {
 
-    public class Font : BaseDbItem {
-        public byte[] File { get; set; }
-    }
-
+	public class Font : BaseDbItem {
+		public byte[] File { get; set; }
+	}
 }

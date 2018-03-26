@@ -103,7 +103,7 @@ namespace Graph.Control.Container {
 				RigthBorderLine.Start = this.Position + new Vector2(this.Size.X, 0);
 				RigthBorderLine.End = this.Position + this.Size;
 				BottomBorderLine.Start = this.Position + this.Size;
-				BottomBorderLine.End =  this.Position + new Vector2(0, this.Size.Y);
+				BottomBorderLine.End = this.Position + new Vector2(0, this.Size.Y);
 			}
 		}
 

@@ -69,5 +69,4 @@ namespace Graph {
 			base.Draw(gameTime);
 		}
 	}
-
 }

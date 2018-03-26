@@ -17,5 +17,4 @@ namespace Graph.Core.Provider {
 			return providers[name];
 		}
 	}
-
 }

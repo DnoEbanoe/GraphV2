@@ -4,16 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Graph.Core
-{
+namespace Graph.Core {
 
-	public class DrowOptions
-	{
-		public static DrowOptions Zero
-		{
-			get {
-				return new DrowOptions();
-			}
+	public class DrowOptions {
+		public static DrowOptions Zero {
+			get { return new DrowOptions(); }
 		}
 	}
 }

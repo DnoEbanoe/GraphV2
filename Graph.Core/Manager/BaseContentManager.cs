@@ -6,11 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Content;
 
-namespace Graph.Core.Manager
-{
+namespace Graph.Core.Manager {
 
-	public class BaseContentManager<T> :IContentManager<T>
-	{
+	public class BaseContentManager<T> : IContentManager<T> {
 		protected ContentManager ContentManager { get; }
 		protected Dictionary<string, T> Items { get; set; }
 
@@ -18,6 +16,7 @@ namespace Graph.Core.Manager
 			ContentManager = contentManager;
 			InitializeItems();
 		}
+
 		public void Dispose() {
 			Items.Clear();
 		}
@@ -31,19 +30,17 @@ namespace Graph.Core.Manager
 		}
 
 		public virtual T Get(string name) {
-			if (Items.ContainsKey(name))
-			{
+			if (Items.ContainsKey(name)) {
 				return Items[name];
 			}
+
 			var item = ContentManager.Load<T>(name);
 			Items.Add(name, item);
 			return item;
 		}
 
 		public virtual Task<T> GetAsync(string name) {
-			return Task.Run(() => {
-				return Items[name];
-			});
+			return Task.Run(() => { return Items[name]; });
 		}
 	}
 }
