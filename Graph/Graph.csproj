@@ -42,6 +42,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Component\GraphBuilder.cs" />
+    <Compile Include="Entity\Edge.cs" />
+    <Compile Include="Entity\Graph.cs" />
+    <Compile Include="Entity\Vertices.cs" />
     <Compile Include="MainGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,6 +82,10 @@
     <ProjectReference Include="..\Graph.Core\Graph.Core.csproj">
       <Project>{99204491-2c11-4227-971f-f6f38bdcee68}</Project>
       <Name>Graph.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Graph.Math\Graph.Math.csproj">
+      <Project>{bf7b7607-1c8d-4892-acde-86533d7aa123}</Project>
+      <Name>Graph.Math</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

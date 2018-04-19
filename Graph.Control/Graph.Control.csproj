@@ -60,6 +60,8 @@
     <Compile Include="TextEdit\TextEdit.cs" />
     <Compile Include="Texture\ColorTexture.cs" />
     <Compile Include="Texture\BaseTexture.cs" />
+    <Compile Include="Texture\GradientTexture.cs" />
+    <Compile Include="Texture\ImageTexture.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Graph.Core\Graph.Core.csproj">

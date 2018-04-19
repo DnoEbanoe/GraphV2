@@ -16,7 +16,8 @@ namespace Graph.Core.Helper {
 		}
 
 		public static Rectangle GetRectangle(this IGameObject gameObject, int indent = 0) {
-			return new Rectangle((int) gameObject.Position.X - indent, (int) gameObject.Position.Y - indent, (int) gameObject.Size.X + indent, (int) gameObject.Size.Y + indent);
+			return new Rectangle((int) gameObject.Position.X - indent, (int) gameObject.Position.Y - indent,
+				(int) gameObject.Size.X + indent, (int) gameObject.Size.Y + indent);
 		}
 	}
 }

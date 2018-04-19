@@ -16,7 +16,6 @@ namespace Graph.Core {
 				if (config.Length != 2) {
 					throw new FormatException(assetName);
 				}
-
 				var providerName = config[0];
 				var textureName = config[1];
 				var provider = ProviderFactory.Create(providerName);

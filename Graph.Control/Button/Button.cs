@@ -8,19 +8,16 @@ namespace Graph.Control.Button {
 
 	public class Button : Container.Container {
 		private bool _isClick;
-
 		public string Text {
 			get => Label.Text;
 			set => Label.Text = value;
 		}
-
 		public Color TextColor {
 			get { return Label == null ? Color.White : Label.Color; }
 			set {
 				if (Label != null) Label.Color = value;
 			}
 		}
-
 		private Label.Label Label { get; set; }
 
 		public Button(GameManager manager) : base(manager) {
@@ -43,13 +40,10 @@ namespace Graph.Control.Button {
 				_isClick = false;
 			}
 		}
-
 		protected virtual void OnClick() {
 			OnClick(this, new ButtonEventArgs());
 		}
-
 		public event Action<Button, ButtonEventArgs> Click;
-
 		protected virtual void OnClick(Button arg1, ButtonEventArgs arg2) {
 			Click?.Invoke(arg1, arg2);
 		}

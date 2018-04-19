@@ -8,6 +8,7 @@ using Graph.Control.Texture;
 using Graph.Core;
 using Graph.Core.Helper;
 using Graph.Core.Manager;
+using Graph.Math;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -19,6 +20,7 @@ namespace Graph {
 		private GameManager GameManager { get; set; }
 
 		public MainGame() {
+			Dijstra d = new Dijstra(new double[5,9], 5);
 			GameManager = new GameManager {GraphicsDeviceManager = new GraphicsDeviceManager(this)};
 			GameManager.ContentManager = new GraphContentManager(Services);
 			GameManager.FonsManager = new BaseContentManager<SpriteFont>(GameManager.ContentManager);
@@ -29,9 +31,8 @@ namespace Graph {
 
 		protected override void LoadContent() {
 			GameManager.SpriteBatch = new SpriteBatch(GraphicsDevice);
-			//var container = new Container(GameManager){AutoSize = true};
-			////container.Position = new Vector2(50, 50);
-			//container.BackgroundTexture = new ColorTexture(GameManager, Color.Black);
+
+			#region Створення тестової кнопки
 			var btn = new Button(GameManager)
 			{
 				Text = "Azazazaz",
@@ -45,11 +46,8 @@ namespace Graph {
 			};
 			btn.Click += (button, args) => { btn.Text += "A"; };
 			_gameEngine.Add(btn);
-			//container.Add(btn);
-			//container.Add(new TextEdit(GameManager) { Text = "Azazazazaz"});
-			//Line line = new Line(GameManager){};
-			//line.Start = new Vector2(50,100);
-			//_gameEngine.Add(line);
+			#endregion
+
 			_gameEngine.Add(new Cursor(GameManager));
 		}
 

@@ -13,17 +13,14 @@ namespace Graph.Core {
 		public void Add(IGameObject gameObject) {
 			GameObjects.Add(gameObject);
 		}
-
 		public void Repove(IGameObject gameObject) {
 			GameObjects.Remove(gameObject);
 		}
-
 		public void Update(GameTime gameTime) {
 			foreach (var gameObject in GameObjects) {
 				gameObject.Update(gameTime, UpdateOptions.Zero);
 			}
 		}
-
 		public void Drow(GameTime gameTime) {
 			foreach (var gameObject in GameObjects) {
 				gameObject.Drow(gameTime, DrowOptions.Zero);

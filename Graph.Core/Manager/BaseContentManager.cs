@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Content;
 
@@ -15,10 +11,6 @@ namespace Graph.Core.Manager {
 		public BaseContentManager(ContentManager contentManager) {
 			ContentManager = contentManager;
 			InitializeItems();
-		}
-
-		public void Dispose() {
-			Items.Clear();
 		}
 
 		public virtual void InitializeItems() {
@@ -40,7 +32,11 @@ namespace Graph.Core.Manager {
 		}
 
 		public virtual Task<T> GetAsync(string name) {
-			return Task.Run(() => { return Items[name]; });
+			return Task.Run(() => Get(name));
+		}
+
+		public void Dispose() {
+			Items.Clear();
 		}
 	}
 }

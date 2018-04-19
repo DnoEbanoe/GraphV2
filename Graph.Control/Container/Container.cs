@@ -13,7 +13,6 @@ namespace Graph.Control.Container {
 		public Margin Margin { get; set; } = Margin.Zero;
 		public Margin ItemMargin { get; set; } = new Margin(5);
 		public ContentAlign Align { get; set; }
-
 		public Border Border {
 			get => _border;
 			set {
@@ -28,7 +27,6 @@ namespace Graph.Control.Container {
 				}
 			}
 		}
-
 		public bool AutoSize { get; set; }
 		private Line.Line LeftBorderLine { get; set; }
 		private Line.Line TopBorderLine { get; set; }
@@ -76,11 +74,9 @@ namespace Graph.Control.Container {
 				GameManager.SpriteBatch.Draw(BackgroundTexture.GetTexture(rectangle), this.GetRectangle(), null,
 					Color.White);
 			}
-
 			foreach (var item in Items) {
 				item.Drow(gameTime, options);
 			}
-
 			BorderDrow(gameTime, options);
 			base.Drow(gameTime, options);
 		}
@@ -112,7 +108,6 @@ namespace Graph.Control.Container {
 			foreach (var item in Items) {
 				item.Update(gameTime, options + new UpdateOptions() {Position = itemStartPosition});
 			}
-
 			base.Update(gameTime, options);
 			UpdateBorder();
 		}
