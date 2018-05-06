@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Graph.Control.Label {
 
 	public class Label : BaseControl {
-		public string Text { get; set; }
+		public string Text { get; set; } = string.Empty;
 		public SpriteFont Font { get; set; }
 		public virtual Color Color { get; set; }
 

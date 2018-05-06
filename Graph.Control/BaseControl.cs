@@ -1,4 +1,5 @@
-﻿using Graph.Core;
+﻿using System.Collections.Generic;
+using Graph.Core;
 using Microsoft.Xna.Framework;
 
 namespace Graph.Control {
@@ -7,8 +8,10 @@ namespace Graph.Control {
 		private Vector2 _position;
 		private Vector2 _size;
 		public GameManager GameManager { get; set; }
-		private UpdateOptions UpdateOptions { get; set; }
-		private DrowOptions DrowOptions { get; set; }
+		public List<string> Tags { get; set; } = new List<string>();
+		protected UpdateOptions UpdateOptions { get; set; }
+		protected DrowOptions DrowOptions { get; set; }
+
 
 		public virtual void Drow(GameTime gameTime, DrowOptions options) {
 			DrowOptions = options;
@@ -33,5 +36,7 @@ namespace Graph.Control {
 			Position = Vector2.Zero;
 			Size = Vector2.Zero;
 		}
+
+		
 	}
 }

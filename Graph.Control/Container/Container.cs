@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Graph.Control.Texture;
 using Graph.Core;
 using Graph.Core.Helper;
@@ -8,10 +9,10 @@ namespace Graph.Control.Container {
 
 	public class Container : BaseControl {
 		private Border _border = new Border();
-		private List<IControl> Items { get; set; } = new List<IControl>();
+		public List<IControl> Items { get; protected set; } = new List<IControl>();
 		public BaseTexture BackgroundTexture { get; set; }
 		public Margin Margin { get; set; } = Margin.Zero;
-		public Margin ItemMargin { get; set; } = new Margin(5);
+		public Margin ItemMargin { get; set; } = new Margin(0);
 		public ContentAlign Align { get; set; }
 		public Border Border {
 			get => _border;
@@ -68,6 +69,10 @@ namespace Graph.Control.Container {
 			Items.Add(control);
 		}
 
+		public virtual void Remove(IControl control) {
+			Items.Remove(control);
+		}
+
 		public override void Drow(GameTime gameTime, DrowOptions options) {
 			var rectangle = this.GetRectangle();
 			if (BackgroundTexture != null && rectangle != Rectangle.Empty) {
@@ -104,7 +109,7 @@ namespace Graph.Control.Container {
 		}
 
 		public override void Update(GameTime gameTime, UpdateOptions options) {
-			var itemStartPosition = Position + new Vector2(ItemMargin.Left + Margin.Left, ItemMargin.Top + Margin.Top);
+			var itemStartPosition = Position + new Vector2(ItemMargin.Left + Margin.Left, ItemMargin.Top + Margin.Top) - UpdateOptions.Position;
 			foreach (var item in Items) {
 				item.Update(gameTime, options + new UpdateOptions() {Position = itemStartPosition});
 			}

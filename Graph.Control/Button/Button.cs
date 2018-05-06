@@ -26,7 +26,6 @@ namespace Graph.Control.Button {
 		}
 
 		public override void Update(GameTime gameTime, UpdateOptions options) {
-			base.Update(gameTime, options);
 			var mouseState = GameManager.MouseState;
 			if (!_isClick &&
 			    mouseState.LeftButton == ButtonState.Pressed &&
@@ -35,10 +34,10 @@ namespace Graph.Control.Button {
 				_isClick = true;
 				return;
 			}
-
 			if (mouseState.LeftButton == ButtonState.Released) {
 				_isClick = false;
 			}
+			base.Update(gameTime, options);
 		}
 		protected virtual void OnClick() {
 			OnClick(this, new ButtonEventArgs());
