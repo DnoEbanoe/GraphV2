@@ -46,7 +46,7 @@ namespace Graph.UI
 		public GraphLine(GameManager gameManager) : base(gameManager) {
 			Font = GameManager.FonsManager.Get("font:standart");
 			Line = new Line(gameManager);
-			Color = Color.Red;
+			Color = new Color(Color.Red, 0.25f);
 			Width = 5;
 		}
 

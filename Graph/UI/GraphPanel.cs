@@ -3,7 +3,6 @@ using Graph.Control;
 using Graph.Control.Button;
 using Graph.Control.Container;
 using Graph.Control.Helpers;
-using Graph.Control.Line;
 using Graph.Control.Texture;
 using Graph.Core;
 using Graph.Core.Helper;
@@ -15,8 +14,7 @@ namespace Graph.UI {
 		private bool _isClick;
 		public Vector2 PointSize { get; set; } = new Vector2(20, 20);
 		private GraphLine CurrentLine { get; set; }
-		private IControl StartPointingPath { get; set; }
-		private IControl EndPointingPath { get; set; }
+		public IControl PointingPath { get; set; }
 
 		public GraphPanel(GameManager gameManager) : base(gameManager) {
 			GameManager = gameManager;
@@ -34,16 +32,15 @@ namespace Graph.UI {
 						AddLine(newPosition);
 					}
 					else if (SysSettings.IsPointingPath) {
-						SetPointingPath(newPosition, PointingPathType.Start);
+						SetPointingPath(newPosition);
+					} else if (SysSettings.IsRemovePoint) {
+						RepovePoint(newPosition);
 					}
 					_isClick = true;
 				}
 				if (mouseState.RightButton == ButtonState.Pressed) {
 					if (CurrentLine != null) {
 						this.Remove(CurrentLine);
-					}
-					else if (SysSettings.IsPointingPath) {
-						SetPointingPath(newPosition, PointingPathType.End);
 					}
 					_isClick = true;
 				}
@@ -56,13 +53,36 @@ namespace Graph.UI {
 			base.Update(gameTime, options);
 		}
 
+		private void RepovePoint(Vector2 position) {
+			var newRectangle = new Rectangle((position + this.Position).ToPoint(), PointSize.ToPoint());
+			var point = Items.GetElements(newRectangle, "point").FirstOrDefault();
+			if (point != null) {
+				var lines = Items.GetElements("line").Cast<GraphLine>().Where(control => control.StartPoint == point || control.EndPoint == point);
+				foreach (var graphLine in lines) {
+					this.Remove(graphLine);
+				}
+				this.Remove(point);
+				var i = 1;
+				if (Items.Count > 0) {
+					foreach (var control in Items.GetElements("point").Cast<GraphPoint>().OrderBy(control => control.Number))
+					{
+						control.Number = i;
+						i++;
+					}
+				}
+
+				
+			}
+		}
+
 		private void AddPoint(Vector2 position) {
 			var newRectangle = new Rectangle((position + this.Position).ToPoint(), PointSize.ToPoint());
 			if (Items.GetElements(newRectangle, "collade-item").Any()) {
 				return;
 			}
 
-			var itemNumber = Items.GetElements("point").Count + 1;
+			var points = Items.GetElements("point");
+			var itemNumber = points.Count == 0 ? 1 : points.Cast<GraphPoint>().Max(graphPoint => graphPoint.Number) + 1;
 			var point = new GraphPoint(GameManager) {
 				BackgroundTexture = new ImageTexture(GameManager, "point1"),
 				Position = position,
@@ -91,27 +111,16 @@ namespace Graph.UI {
 			}
 		}
 
-		private void SetPointingPath(Vector2 position, PointingPathType pathType) {
+		private void SetPointingPath(Vector2 position) {
 			var newRectangle = new Rectangle((position + this.Position).ToPoint(), PointSize.ToPoint());
 			var point = Items.GetElements(newRectangle, "point").FirstOrDefault();
 			if (point != null) {
-				var oldPoint = pathType == PointingPathType.Start ? StartPointingPath : EndPointingPath;
-				if (oldPoint != null) {
-					((Button) oldPoint).Border = new Border();
+				if (PointingPath != null) {
+					((Button)PointingPath).Border = new Border();
 				}
-				((Button)point).Border = new Border() { Color = pathType == PointingPathType.Start ? Color.Blue : Color.Red, Width = 2 };
-				if (pathType == PointingPathType.Start) {
-					StartPointingPath = point;
-				}
-				else {
-					EndPointingPath = point;
-				}
+				((Button)point).Border = new Border() { Color = Color.Yellow, Width = 2 };
+				PointingPath = point;
 			}
 		}
-	}
-
-	enum PointingPathType {
-		Start,
-		End
 	}
 }

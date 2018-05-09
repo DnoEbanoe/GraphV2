@@ -9,5 +9,6 @@ namespace Graph {
 		public static bool IsAddPoint { get; set; } = true;
 		public static bool IsAddLine { get; set; }
 		public static bool IsPointingPath { get; set; }
+		public static bool IsRemovePoint { get; set; }
 	}
 }
