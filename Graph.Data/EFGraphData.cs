@@ -8,12 +8,13 @@ using Graph.Data.Entity;
 namespace Graph.Data {
 	public class EFGraphData: IGraphData
 	{
-		public IEnumerable<Font> GetFont(string name) {
-			throw new NotImplementedException();
+		readonly GraphDataContext _context = new GraphDataContext();
+		public Font GetFont(string name) {
+			return _context.Fonts.First(font => font.Name == name);
 		}
 
-		public IEnumerable<Image> GetImage(string name) {
-			throw new NotImplementedException();
+		public Image GetImage(string name) {
+			return _context.Images.First(image => image.Name == name);
 		}
 	}
 }

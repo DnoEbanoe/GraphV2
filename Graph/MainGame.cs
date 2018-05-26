@@ -8,6 +8,8 @@ using Graph.Control.Helpers;
 using Graph.Control.Label;
 using Graph.Core;
 using Graph.Core.Manager;
+using Graph.Core.Provider;
+using Graph.Data;
 using Graph.Math;
 using Graph.UI;
 using Microsoft.Xna.Framework;
@@ -23,9 +25,12 @@ namespace Graph {
 		private Label MessageLabel { get; set; }
 
 		public MainGame() {
-			
+			var graphData = new EFGraphData();
 			GameManager = new GameManager {GraphicsDeviceManager = new GraphicsDeviceManager(this)};
-			GameManager.ContentManager = new GraphContentManager(Services);
+			GameManager.ContentManager = new GraphContentManager(Services, new Dictionary<string, IContentProvider> {
+					{"font", new FontContentProvider(graphData)},
+					{"image", new TextureContentProvider(graphData)}
+				});
 			GameManager.FonsManager = new BaseContentManager<SpriteFont>(GameManager.ContentManager);
 			GameManager.TextureManager = new BaseContentManager<Texture2D>(GameManager.ContentManager);
 			_gameEngine = new GameEngine(GameManager);
@@ -48,7 +53,11 @@ namespace Graph {
 			
 			var graphWidth = GameManager.GraphicsDeviceManager.PreferredBackBufferWidth;
 			var graphHeight = GameManager.GraphicsDeviceManager.PreferredBackBufferHeight;
-			GraphPanel = new GraphPanel(GameManager){Position = new Vector2(0, 42), Size = new Vector2(graphWidth, graphHeight - 70), Border = new Border(){Color = Color.Gold, Width = 3}};
+			GraphPanel = new GraphPanel(GameManager) {
+				Position = new Vector2(0, 42),
+				Size = new Vector2(graphWidth, graphHeight - 70),
+				Border = new Border{Color = Color.Gold, Width = 3}
+			};
 			_gameEngine.Add(GraphPanel);
 			new GraphBuilder(GameManager, GraphPanel);
 
@@ -58,6 +67,7 @@ namespace Graph {
 
 			MessageLabel = new Label(GameManager) {Color = Color.Black, Position = new Vector2(50, graphHeight - 20)};
 			_gameEngine.Add(MessageLabel);
+
 			#endregion
 
 			_gameEngine.Add(new Cursor(GameManager));

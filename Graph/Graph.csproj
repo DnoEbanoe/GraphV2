@@ -103,6 +103,10 @@
       <Project>{99204491-2c11-4227-971f-f6f38bdcee68}</Project>
       <Name>Graph.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Graph.Data\Graph.Data.csproj">
+      <Project>{F53A7F97-7EEB-4814-9C23-8800205D6287}</Project>
+      <Name>Graph.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Graph.Math\Graph.Math.csproj">
       <Project>{bf7b7607-1c8d-4892-acde-86533d7aa123}</Project>
       <Name>Graph.Math</Name>

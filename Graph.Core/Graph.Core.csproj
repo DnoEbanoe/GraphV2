@@ -64,7 +64,6 @@
     <Compile Include="Manager\IContentManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GraphContentManager.cs" />
-    <Compile Include="Provider\ProviderFactory.cs" />
     <Compile Include="Provider\TextureContentProvider.cs" />
     <Compile Include="UpdateOptions.cs" />
   </ItemGroup>

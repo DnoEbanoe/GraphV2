@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using Graph.Core.Provider;
@@ -7,7 +8,10 @@ using Microsoft.Xna.Framework.Content;
 namespace Graph.Core {
 
 	public class GraphContentManager : ContentManager {
-		public GraphContentManager(IServiceProvider serviceProvider) : base(serviceProvider) {
+		public Dictionary<string, IContentProvider> Providers { get; }
+
+		public GraphContentManager(IServiceProvider serviceProvider, Dictionary<string, IContentProvider> providers) : base(serviceProvider) {
+			Providers = providers;
 		}
 
 		protected override Stream OpenStream(string assetName) {
@@ -18,7 +22,7 @@ namespace Graph.Core {
 				}
 				var providerName = config[0];
 				var textureName = config[1];
-				var provider = ProviderFactory.Create(providerName);
+				var provider = Providers[providerName];
 				var stream = provider.Get(textureName);
 				return stream;
 			}
