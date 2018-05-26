@@ -46,7 +46,7 @@ namespace Graph.UI
 		public GraphLine(GameManager gameManager) : base(gameManager) {
 			Font = GameManager.FonsManager.Get("font:standart");
 			Line = new Line(gameManager);
-			Color = new Color(Color.Red, 0.25f);
+			ResetColor();
 			Width = 5;
 		}
 
@@ -64,6 +64,10 @@ namespace Graph.UI
 			Distance = Vector2.Distance(Line.Start, endPosition);
 			Line.Update(gameTime, options);
 			base.Update(gameTime, options);
+		}
+
+		public void ResetColor() {
+			Color = new Color(Color.Red, 0.25f);
 		}
 
 		public Vector2 TextPosition { get; set; }

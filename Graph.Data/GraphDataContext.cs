@@ -12,7 +12,7 @@ namespace Graph.Data {
 		public DbSet<Font> Fonts { get; set; }
 		public DbSet<Image> Images { get; set; }
 
-		public GraphDataContext() : base("DBConnection") {
+		public GraphDataContext() : base("SqliteConnection") {
 
 		}
 	}

@@ -20,7 +20,7 @@ namespace Graph.UI {
 		public Button SearchPathButton { get; private set; }
 		public Button RemovePointButton { get; private set; }
 
-		public event Action<IControl, MenuClickEventArgs> Click;
+		public event Action<IControl, GameObjectClickEventArgs> Click;
 
 		public MainMenu(GameManager gameManager) : base(gameManager) {
 			AutoSize = true;
@@ -90,7 +90,7 @@ namespace Graph.UI {
 		protected virtual void OnClick(Button button) {
 			ResetActiveButtons();
 			button.Border = new Border() { Width = 2, Color = Color.Red };
-			Click?.Invoke(button, new MenuClickEventArgs());
+			Click?.Invoke(button, new GameObjectClickEventArgs());
 		}
 	}
 }

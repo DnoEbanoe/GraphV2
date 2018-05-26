@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Graph.Component;
 using Graph.Control;
 using Graph.Control.Button;
-using Graph.Control.Container;
 using Graph.Control.Cursor;
 using Graph.Control.Helpers;
 using Graph.Control.Label;
-using Graph.Control.Line;
-using Graph.Control.TextEdit;
-using Graph.Control.Texture;
 using Graph.Core;
-using Graph.Core.Helper;
 using Graph.Core.Manager;
 using Graph.Math;
 using Graph.UI;
@@ -51,11 +45,13 @@ namespace Graph {
 			#endregion
 
 			#region GraphPanel
-
+			
 			var graphWidth = GameManager.GraphicsDeviceManager.PreferredBackBufferWidth;
 			var graphHeight = GameManager.GraphicsDeviceManager.PreferredBackBufferHeight;
 			GraphPanel = new GraphPanel(GameManager){Position = new Vector2(0, 42), Size = new Vector2(graphWidth, graphHeight - 70), Border = new Border(){Color = Color.Gold, Width = 3}};
 			_gameEngine.Add(GraphPanel);
+			new GraphBuilder(GameManager, GraphPanel);
+
 			#endregion
 
 			#region MessageLabel
@@ -67,7 +63,7 @@ namespace Graph {
 			_gameEngine.Add(new Cursor(GameManager));
 		}
 
-		private void MainMunuOnClick(IControl control, MenuClickEventArgs eventArgs) {
+		private void MainMunuOnClick(IControl control, GameObjectClickEventArgs eventArgs) {
 			var button = (Button) control;
 			if (button.Tags.Contains("IsAddPoint")) {
 				MainMenu.ResetSysSettings();
@@ -87,36 +83,54 @@ namespace Graph {
 			}
 			else if (button.Tags.Contains("SearchPath")) {
 				MainMenu.ResetSysSettings();
-				string message;
-				if (GraphPanel.PointingPath == null) {
-					message = "azazaz";
-				}
-				else {
-					var points = GraphPanel.Items.GetElements("point").Cast<GraphPoint>().ToList();
-					var lines = GraphPanel.Items.GetElements("line").Cast<GraphLine>();
-					double[,] arr = new double[points.Count, points.Count];
-					foreach (var graphLine in lines)
-					{
-						var startPoint = (GraphPoint)graphLine.StartPoint;
-						var endPoint = (GraphPoint)graphLine.EndPoint;
-						arr[startPoint.Number - 1, endPoint.Number - 1] = graphLine.Distance;
-						arr[endPoint.Number - 1, startPoint.Number - 1] = graphLine.Distance;
-					}
-					Dijstra d = new Dijstra();
-					var rez = d.GetDistance(arr, points.Count).ToList();
-					var pointingPathNumber = ((GraphPoint)GraphPanel.PointingPath).Number - 1;
-					var distance = rez[pointingPathNumber];
-					if (distance == null) {
-						message = "Path not found";
-					}
-					else {
-						var path = ValidatePath(distance.Path.Select(i => i + 1));
-						message = $"Shortcut: {string.Join(" --> ", path)}. Distance: {distance.Value:F1}";
-					}
-				}
-				MessageLabel.Text = message;
+				ResetPreviousPath();
+				SearchPath();
 			}
 		}
+
+		private void ResetPreviousPath() {
+			var lines = GraphPanel.Items.GetElements("line").Cast<GraphLine>();
+			foreach (var graphLine in lines) {
+				graphLine.ResetColor();
+			}
+		}
+
+		private void SearchPath() {
+			string message;
+			if (GraphPanel.PointingPath == null) {
+				message = "Specify the end point!!!";
+			} else {
+				var points = GraphPanel.Items.GetElements("point").Cast<GraphPoint>().ToList();
+				var lines = GraphPanel.Items.GetElements("line").Cast<GraphLine>().ToList();
+				double[,] arr = new double[points.Count, points.Count];
+				foreach (var graphLine in lines) {
+					var startPoint = (GraphPoint) graphLine.StartPoint;
+					var endPoint = (GraphPoint) graphLine.EndPoint;
+					arr[startPoint.Number - 1, endPoint.Number - 1] = graphLine.Distance;
+					arr[endPoint.Number - 1, startPoint.Number - 1] = graphLine.Distance;
+				}
+				Dijstra d = new Dijstra();
+				var rez = d.GetDistance(arr, points.Count).ToList();
+				var pointingPathNumber = ((GraphPoint) GraphPanel.PointingPath).Number - 1;
+				var distance = rez[pointingPathNumber];
+				if (distance == null) {
+					message = "Path not found";
+				}
+				else {
+					var path = ValidatePath(distance.Path.Select(i => i + 1)).ToList();
+					message = $"Shortcut: {string.Join(" --> ", path)}. Distance: {distance.Value:F1}";
+					for (int i = 1; i < path.Count; i++) {
+						var startI = path[i - 1];
+						var endI = path[i];
+						var line = lines.First(graphLine => (((GraphPoint) graphLine.StartPoint).Number == startI || ((GraphPoint) graphLine.StartPoint).Number == endI)
+							&& (((GraphPoint) graphLine.EndPoint).Number == startI || ((GraphPoint) graphLine.EndPoint).Number == endI));
+						line.Color = new Color(Color.Yellow, 0.1f);
+					}
+				}
+			}
+			MessageLabel.Text = message;
+		}
+
 
 		private IEnumerable<int> ValidatePath(IEnumerable<int> path) {
 			var pathList = path.ToList();
