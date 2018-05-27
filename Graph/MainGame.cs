@@ -18,24 +18,28 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Graph {
 
-	public class MainGame : Game {
-		private readonly GameEngine _gameEngine;
-		private GameManager GameManager { get; set; }
-		private GraphPanel GraphPanel { get; set; }
+	public class MainGame : Game
+	{
+		public readonly GameEngine _gameEngine;
+		public GameManager GameManager { get; set; }
+		public GraphPanel GraphPanel { get; set; }
+		public Dijstra Dijstra { get; set; } = new Dijstra();
 		private Label MessageLabel { get; set; }
+		public IGraphData GraphData { get; set; } = new EFGraphData();
 
 		public MainGame() {
-			var graphData = new EFGraphData();
 			GameManager = new GameManager {GraphicsDeviceManager = new GraphicsDeviceManager(this)};
 			GameManager.ContentManager = new GraphContentManager(Services, new Dictionary<string, IContentProvider> {
-					{"font", new FontContentProvider(graphData)},
-					{"image", new TextureContentProvider(graphData)}
+					{"font", new FontContentProvider(GraphData)},
+					{"image", new TextureContentProvider(GraphData)}
 				});
 			GameManager.FonsManager = new BaseContentManager<SpriteFont>(GameManager.ContentManager);
 			GameManager.TextureManager = new BaseContentManager<Texture2D>(GameManager.ContentManager);
 			_gameEngine = new GameEngine(GameManager);
 			Content.RootDirectory = "Content";
 		}
+
+		
 
 		protected override void LoadContent() {
 			GameManager.SpriteBatch = new SpriteBatch(GraphicsDevice);
@@ -119,8 +123,7 @@ namespace Graph {
 					arr[startPoint.Number - 1, endPoint.Number - 1] = graphLine.Distance;
 					arr[endPoint.Number - 1, startPoint.Number - 1] = graphLine.Distance;
 				}
-				Dijstra d = new Dijstra();
-				var rez = d.GetDistance(arr, points.Count).ToList();
+				var rez = Dijstra.GetDistance(arr, points.Count).ToList();
 				var pointingPathNumber = ((GraphPoint) GraphPanel.PointingPath).Number - 1;
 				var distance = rez[pointingPathNumber];
 				if (distance == null) {
@@ -134,7 +137,7 @@ namespace Graph {
 						var endI = path[i];
 						var line = lines.First(graphLine => (((GraphPoint) graphLine.StartPoint).Number == startI || ((GraphPoint) graphLine.StartPoint).Number == endI)
 							&& (((GraphPoint) graphLine.EndPoint).Number == startI || ((GraphPoint) graphLine.EndPoint).Number == endI));
-						line.Color = new Color(Color.Yellow, 0.1f);
+						line.Color = new Color(Color.Yellow, 0.01f);
 					}
 				}
 			}

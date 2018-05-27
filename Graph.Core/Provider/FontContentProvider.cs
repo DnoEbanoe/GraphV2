@@ -4,7 +4,7 @@ using Graph.Data;
 namespace Graph.Core.Provider {
 
 	public class FontContentProvider : IContentProvider {
-		private IGraphData Data { get; set; }
+		public IGraphData Data { get; set; }
 
 		public FontContentProvider(IGraphData data) {
 			this.Data = data;

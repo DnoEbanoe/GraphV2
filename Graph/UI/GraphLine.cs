@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Graph.Control;
+﻿using Graph.Control;
 using Graph.Control.Helpers;
 using Graph.Control.Line;
 using Graph.Core;
@@ -13,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Graph.UI
 {
-	public class GraphLine: BaseControl
+	public class GraphLine: Line
 	{
 		private IControl _startPoint;
 		private IControl _endPoint;
@@ -22,30 +16,20 @@ namespace Graph.UI
 			get => _startPoint;
 			set {
 				_startPoint = value;
-				Line.Start = value.GetCenter();
+				base.Start = value.GetCenter();
 			}
 		}
 		public IControl EndPoint {
 			get => _endPoint;
 			set {
 				_endPoint = value;
-				Line.End = value.GetCenter();
+				base.End = value.GetCenter();
 			}
-		}
-		public int Width {
-			get => Line.Width;
-			set => Line.Width = value;
-		}
-		public virtual Color Color {
-			get => Line.Color;
-			set => Line.Color = value;
 		}
 		public SpriteFont Font { get; set; }
 		public double Distance { get; set; }
-		private Line Line { get; set; }
 		public GraphLine(GameManager gameManager) : base(gameManager) {
 			Font = GameManager.FonsManager.Get("font:standart");
-			Line = new Line(gameManager);
 			ResetColor();
 			Width = 5;
 		}
@@ -53,16 +37,14 @@ namespace Graph.UI
 		
 
 		public override void Drow(GameTime gameTime, DrowOptions options) {
-			Line.Drow(gameTime, options);
 			GameManager.SpriteBatch.DrawString(Font, Distance.ToString("F1"), TextPosition, Color.White);
 			base.Drow(gameTime, options);
 		}
 
 		public override void Update(GameTime gameTime, UpdateOptions options) {
-			var endPosition = Line.End ?? GameManager.MousePosition.Location.ToVector2();
-			TextPosition = new Vector2((int)((Line.Start.X + endPosition.X) / 2), (int)((Line.Start.Y + endPosition.Y) / 2));
-			Distance = Vector2.Distance(Line.Start, endPosition);
-			Line.Update(gameTime, options);
+			var endPosition = base.End ?? GameManager.MousePosition.Location.ToVector2();
+			TextPosition = new Vector2((int)((base.Start.X + endPosition.X) / 2), (int)((base.Start.Y + endPosition.Y) / 2));
+			Distance = Vector2.Distance(base.Start, endPosition);
 			base.Update(gameTime, options);
 		}
 

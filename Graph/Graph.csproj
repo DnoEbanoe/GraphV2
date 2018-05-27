@@ -44,10 +44,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Component\GraphBuilder.cs" />
-    <Compile Include="Component\GameObjectClickEventArgs.cs" />
-    <Compile Include="Entity\Edge.cs" />
-    <Compile Include="Entity\Graph.cs" />
-    <Compile Include="Entity\Vertices.cs" />
     <Compile Include="MainGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,6 +85,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="app.manifest" />
+    <None Include="GraphClassDiagram.cd" />
     <None Include="graphDb.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

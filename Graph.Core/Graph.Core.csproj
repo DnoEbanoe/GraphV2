@@ -55,6 +55,7 @@
     <Compile Include="DrowOptions.cs" />
     <Compile Include="GameEngine.cs" />
     <Compile Include="GameManager.cs" />
+    <Compile Include="GameObjectClickEventArgs.cs" />
     <Compile Include="Helper\ColliderHelper.cs" />
     <Compile Include="Helper\GraphicsHelper.cs" />
     <Compile Include="Provider\FontContentProvider.cs" />

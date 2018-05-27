@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="Graph.Component.GraphBuilder">
+    <Position X="20.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAECAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Component\GraphBuilder.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GameManager" />
+      <Property Name="GraphPanel" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Graph.MainGame">
+    <Position X="25.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAEAAAEgEUAAAAACAAAAAAAAAAAAAAAABIAAQ=</HashCode>
+      <FileName>MainGame.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_gameEngine" />
+      <Property Name="GameManager" />
+      <Property Name="GraphPanel" />
+      <Property Name="Dijstra" />
+      <Property Name="MessageLabel" />
+      <Property Name="GraphData" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Graph.SysSettings">
+    <Position X="33" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAgAAAAAAAAAAAAAAIAAAAAAAEAAAAQ=</HashCode>
+      <FileName>SysSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Graph.UI.GraphLine">
+    <Position X="20.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAQgAAAAAAAAAAAAABIABAAAAAAAAiAAo=</HashCode>
+      <FileName>UI\GraphLine.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="StartPoint" />
+      <Property Name="EndPoint" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Graph.UI.GraphPanel">
+    <Position X="14.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwCAgAAAAAQAAAAAIAAAAACAAQAAAAAAAAgAAAAAgA=</HashCode>
+      <FileName>UI\GraphPanel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CurrentLine" />
+      <Property Name="PointingPath" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Graph.UI.GraphPoint">
+    <Position X="22.75" Y="7.75" Width="1.5" />
+    <Members>
+      <Field Name="_number" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>UI\GraphPoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Graph.UI.MainMenu">
+    <Position X="23" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgABAAAIAAAAAAAqAEAAAAAAAAQAAQAAAgA=</HashCode>
+      <FileName>UI\MainMenu.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AddPointButton" />
+      <Property Name="AddLineButton" />
+      <Property Name="PointingPathButton" />
+      <Property Name="SearchPathButton" />
+      <Property Name="RemovePointButton" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Graph.Control.BaseControl">
+    <Position X="29" Y="4" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="GameManager" />
+      <Property Name="UpdateOptions" />
+      <Property Name="DrowOptions" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Graph.Control.Border">
+    <Position X="10.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Control.Button.Button">
+    <Position X="17.25" Y="4" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Control.Button.ButtonEventArgs">
+    <Position X="19" Y="6" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Control.Container.Container">
+    <Position X="14.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="BackgroundTexture" />
+      <Property Name="Margin" />
+      <Property Name="ItemMargin" />
+      <Property Name="Align" />
+      <Property Name="Border" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Items" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Graph.Control.Container.Margin">
+    <Position X="10.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Control.Cursor.Cursor">
+    <Position X="16.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Control.Helpers.ControlHelper">
+    <Position X="35.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Control.Label.Label">
+    <Position X="19" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Control.Line.Line">
+    <Position X="18.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Control.TextEdit.TextEdit">
+    <Position X="12.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Control.Texture.BaseTexture">
+    <Position X="24.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Control.Texture.ColorTexture">
+    <Position X="26.5" Y="14.25" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="GameManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Graph.Control.Texture.GradientTexture">
+    <Position X="22" Y="14.25" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="GameManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Graph.Control.Texture.ImageTexture">
+    <Position X="24.25" Y="14.25" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="GameManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Graph.Core.DrowOptions">
+    <Position X="27.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Zero" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Graph.Core.GameEngine">
+    <Position X="24" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Core.GameManager">
+    <Position X="28.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="FonsManager" />
+      <Property Name="TextureManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Graph.Core.GraphContentManager">
+    <Position X="30.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Core.Helper.ColliderHelper">
+    <Position X="35.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Core.Helper.GraphicsHelper">
+    <Position X="35.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Core.Manager.BaseContentManager&lt;T&gt;" BaseTypeListCollapsed="true">
+    <Position X="28.5" Y="13" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Graph.Core.Provider.TextureContentProvider" BaseTypeListCollapsed="true">
+    <Position X="25" Y="18.75" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Data" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Graph.Data.GraphDataContext">
+    <Position X="29.75" Y="17.5" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsCollectionAssociation>
+      <Property Name="Fonts" />
+      <Property Name="Images" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Graph.Data.Entity.BaseDbItem">
+    <Position X="33.25" Y="16.25" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Graph.Data.Entity.Font">
+    <Position X="35.25" Y="17.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Data.Entity.Image">
+    <Position X="35.25" Y="15.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Math.Dijstra">
+    <Position X="31" Y="0.75" Width="2.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Math.Distance">
+    <Position X="34" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Core.Provider.FontContentProvider">
+    <Position X="23" Y="17.5" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Data" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Graph.Data.EFGraphData">
+    <Position X="27.75" Y="17.5" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Context" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Graph.Core.GameObjectClickEventArgs">
+    <Position X="21.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Struct Name="Graph.Core.UpdateOptions">
+    <Position X="29" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Zero" />
+    </ShowAsAssociation>
+  </Struct>
+  <Interface Name="Graph.Control.IControl">
+    <Position X="14.75" Y="3" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Graph.Core.IGameObject">
+    <Position X="15.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="GameManager" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="Graph.Core.Manager.IContentManager&lt;T&gt;">
+    <Position X="31.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Graph.Core.Provider.IContentProvider">
+    <Position X="23" Y="19.25" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Graph.Data.IGraphData">
+    <Position X="25.75" Y="16.75" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Graph.Data.Entity.IDbItem">
+    <Position X="31.5" Y="16.5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Enum Name="Graph.Control.Container.ContentAlign">
+    <Position X="10.5" Y="6" Width="1.5" />
+    <TypeIdentifier />
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
