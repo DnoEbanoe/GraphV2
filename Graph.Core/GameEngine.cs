@@ -3,8 +3,8 @@ using Microsoft.Xna.Framework;
 
 namespace Graph.Core {
 	public class GameEngine {
-		private GameManager GameManager { get; }
-		private List<IGameObject> GameObjects { get; set; } = new List<IGameObject>();
+		protected GameManager GameManager { get; }
+		protected List<IGameObject> GameObjects { get; set; } = new List<IGameObject>();
 
 		public GameEngine(GameManager gameManager) {
 			GameManager = gameManager;
@@ -21,9 +21,9 @@ namespace Graph.Core {
 				gameObject.Update(gameTime, UpdateOptions.Zero);
 			}
 		}
-		public void Drow(GameTime gameTime) {
+		public void Draw(GameTime gameTime) {
 			foreach (var gameObject in GameObjects) {
-				gameObject.Drow(gameTime, DrowOptions.Zero);
+				gameObject.Draw(gameTime, DrowOptions.Zero);
 			}
 		}
 	}

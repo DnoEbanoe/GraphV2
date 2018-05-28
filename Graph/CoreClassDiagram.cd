@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Graph.Core.GameManager">
+    <Position X="17.5" Y="0.5" Width="1.5" />
+    <Members>
+      <Method Name="GameManager" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.MainGame">
+    <Position X="19.5" Y="2" Width="1.5" />
+    <Members>
+      <Method Name="MainGame" Hidden="true" />
+    </Members>
+    <AssociationLine Name="GameManager" Type="Graph.Core.GameManager" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="19.5" Y="3.312" />
+        <Point X="18.188" Y="3.312" />
+        <Point X="18.188" Y="3.142" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAEAAAEgEUAAAAACAAAAAAAAAAAAAAAABIAAQ=</HashCode>
+      <FileName>MainGame.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_gameEngine" />
+      <Property Name="GameManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Graph.Core.GameEngine">
+    <Position X="15" Y="3.5" Width="1.5" />
+    <Members>
+      <Method Name="GameEngine" Hidden="true" />
+    </Members>
+    <AssociationLine Name="GameManager" Type="Graph.Core.GameManager" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="16.188" Y="3.5" />
+        <Point X="16.188" Y="3.25" />
+        <Point X="16.75" Y="3.25" />
+        <Point X="16.75" Y="3.312" />
+        <Point X="18.188" Y="3.312" />
+        <Point X="18.188" Y="3.142" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="GameManager" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="GameObjects" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Interface Name="Graph.Core.IGameObject">
+    <Position X="15" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="GameManager" />
+    </ShowAsAssociation>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

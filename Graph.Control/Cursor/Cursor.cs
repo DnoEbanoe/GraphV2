@@ -17,7 +17,7 @@ namespace Graph.Control.Cursor {
 			_gameManager = gameManager;
 		}
 
-		public override void Drow(GameTime gameTime, DrowOptions options) {
+		public override void Draw(GameTime gameTime, DrowOptions options) {
 			GameManager.SpriteBatch.Draw(Texture, Position, Color.White);
 		}
 

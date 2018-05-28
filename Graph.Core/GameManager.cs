@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Graph.Core.Manager;
+﻿using Graph.Core.Manager;
+using Graph.Core.Provider;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -18,6 +14,7 @@ namespace Graph.Core {
 		public IContentManager<SpriteFont> FonsManager { get; set; }
 		public IContentManager<Texture2D> TextureManager { get; set; }
 
+		public IContentProvider<string> StringProvider { get; set; }
 		public KeyboardState KeyboardState {
 			get { return Keyboard.GetState(); }
 		}

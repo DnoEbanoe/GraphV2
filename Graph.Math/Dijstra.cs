@@ -52,10 +52,5 @@ namespace Graph.Math {
 			Distance[0] = 0;
 		}
 	}
-
-	public class Distance {
-		public List<int> Path { get; set; } = new List<int>();
-		public double Value { get; set; }
-	}
 }
 

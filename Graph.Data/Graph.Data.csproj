@@ -61,9 +61,11 @@
   <ItemGroup>
     <Compile Include="EFGraphData.cs" />
     <Compile Include="Entity\BaseDbItem.cs" />
+    <Compile Include="Entity\Culture.cs" />
     <Compile Include="Entity\Font.cs" />
     <Compile Include="Entity\IDbItem.cs" />
     <Compile Include="Entity\Image.cs" />
+    <Compile Include="Entity\LocalizableString.cs" />
     <Compile Include="GraphDataContext.cs" />
     <Compile Include="IGraphData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

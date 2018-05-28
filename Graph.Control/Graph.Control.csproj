@@ -52,6 +52,7 @@
     <Compile Include="Container\Container.cs" />
     <Compile Include="Container\ContentAlign.cs" />
     <Compile Include="Container\Margin.cs" />
+    <Compile Include="ControlClickEventArgs.cs" />
     <Compile Include="Cursor\Cursor.cs" />
     <Compile Include="Helpers\ControlHelper.cs" />
     <Compile Include="IControl.cs" />

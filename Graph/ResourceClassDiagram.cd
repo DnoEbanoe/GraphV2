@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Graph.Core.Provider.FontContentProvider">
+    <Position X="6.75" Y="1.75" Width="1.5" />
+    <Members>
+      <Method Name="FontContentProvider" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Data" Type="Graph.Data.IGraphData" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.25" Y="2.302" />
+        <Point X="8.5" Y="2.302" />
+        <Point X="8.5" Y="4.146" />
+        <Point X="8.75" Y="4.146" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Data" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Graph.Core.Provider.TextureContentProvider">
+    <Position X="6.75" Y="3.75" Width="1.5" />
+    <Members>
+      <Method Name="TextureContentProvider" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Data" Type="Graph.Data.IGraphData" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.25" Y="4.302" />
+        <Point X="8.5" Y="4.302" />
+        <Point X="8.5" Y="4.146" />
+        <Point X="8.75" Y="4.146" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Data" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Graph.Core.Manager.BaseContentManager&lt;T&gt;">
+    <Position X="6.5" Y="6" Width="1.5" />
+    <Members>
+      <Method Name="BaseContentManager" Hidden="true" />
+    </Members>
+    <AssociationLine Name="ContentManager" Type="Microsoft.Xna.Framework.Content.ContentManager" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.5" Y="6" />
+        <Point X="7.5" Y="5.625" />
+        <Point X="5.219" Y="5.625" />
+        <Point X="5.219" Y="4.562" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="ContentManager" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Graph.Core.GameManager">
+    <Position X="1.5" Y="3.75" Width="1.5" />
+    <Members>
+      <Method Name="GameManager" Hidden="true" />
+    </Members>
+    <AssociationLine Name="FonsManager" Type="Graph.Core.Manager.IContentManager&lt;T&gt;" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3" Y="5.236" />
+        <Point X="3.701" Y="5.236" />
+        <Point X="3.701" Y="5.892" />
+        <Point X="5.125" Y="5.892" />
+        <Point X="5.125" Y="6" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="TextureManager" Type="Graph.Core.Manager.IContentManager&lt;T&gt;" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3" Y="5.048" />
+        <Point X="5.125" Y="5.048" />
+        <Point X="5.125" Y="6" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.068" Y="0.393" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="ContentManager" />
+      <Property Name="FonsManager" />
+      <Property Name="TextureManager" />
+      <Property Name="StringProvider" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Microsoft.Xna.Framework.Content.ContentManager" Collapsed="true">
+    <Position X="4.5" Y="4" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Graph.Core.GraphContentManager">
+    <Position X="4.5" Y="1.75" Width="1.5" />
+    <Members>
+      <Method Name="GraphContentManager" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+    <ShowAsCollectionAssociation>
+      <Property Name="Providers" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Graph.Core.Provider.StringContentProvider">
+    <Position X="8.75" Y="1.75" Width="1.5" />
+    <Members>
+      <Method Name="StringContentProvider" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Data" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Graph.Core.Manager.IContentManager&lt;T&gt;">
+    <Position X="4.75" Y="6" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Graph.Data.IGraphData">
+    <Position X="8.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Graph.Core.Provider.IContentProvider&lt;T&gt;">
+    <Position X="1.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

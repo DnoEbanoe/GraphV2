@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Graph.Data.EFGraphData">
+    <Position X="20" Y="4.5" Width="1.5" />
+    <Members>
+      <Method Name="EFGraphData" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Context" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Graph.Data.GraphDataContext">
+    <Position X="23" Y="5" Width="1.5" />
+    <Members>
+      <Method Name="GraphDataContext" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Images" Type="Graph.Data.Entity.Image" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="23.625" Y="5.997" />
+        <Point X="23.625" Y="6.7" />
+        <Point X="19.75" Y="6.7" />
+        <Point X="19.75" Y="7" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Fonts" Type="Graph.Data.Entity.Font" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="23.625" Y="5.997" />
+        <Point X="23.625" Y="6.7" />
+        <Point X="21.625" Y="6.7" />
+        <Point X="21.625" Y="7" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Strings" Type="Graph.Data.Entity.LocalizableString" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="23.625" Y="5.997" />
+        <Point X="23.625" Y="6.74" />
+        <Point X="25.562" Y="6.74" />
+        <Point X="25.562" Y="7" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier />
+    <ShowAsCollectionAssociation>
+      <Property Name="Images" />
+      <Property Name="Fonts" />
+      <Property Name="Cultures" />
+      <Property Name="Strings" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Graph.Data.Entity.BaseDbItem">
+    <Position X="22.25" Y="8.75" Width="1.5" />
+    <Members>
+      <Method Name="BaseDbItem" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Graph.Data.Entity.Image">
+    <Position X="19" Y="7" Width="1.5" />
+    <Members>
+      <Method Name="Image" Hidden="true" />
+    </Members>
+    <InheritanceLine Type="Graph.Data.Entity.BaseDbItem" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="22.75" Y="8.75" />
+        <Point X="22.75" Y="8.533" />
+        <Point X="19.688" Y="8.533" />
+        <Point X="19.688" Y="8.233" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Data.Entity.Font">
+    <Position X="20.75" Y="7" Width="1.5" />
+    <Members>
+      <Method Name="Font" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Culture" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Graph.Data.Entity.Culture">
+    <Position X="22.75" Y="7" Width="1.5" />
+    <Members>
+      <Method Name="Culture" Hidden="true" />
+    </Members>
+    <InheritanceLine Type="Graph.Data.Entity.BaseDbItem" ManuallyRouted="true">
+      <Path>
+        <Point X="23" Y="8.75" />
+        <Point X="23" Y="8.529" />
+        <Point X="23.5" Y="8.529" />
+        <Point X="23.5" Y="7.997" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Data.Entity.LocalizableString">
+    <Position X="24.75" Y="7" Width="1.5" />
+    <Members>
+      <Method Name="LocalizableString" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Culture" />
+    </ShowAsAssociation>
+  </Class>
+  <Interface Name="Graph.Data.Entity.IDbItem">
+    <Position X="20.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Graph.Data.IGraphData">
+    <Position X="18.25" Y="5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

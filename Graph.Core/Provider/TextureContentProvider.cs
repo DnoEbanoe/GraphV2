@@ -3,7 +3,7 @@ using Graph.Data;
 
 namespace Graph.Core.Provider {
 
-	public class TextureContentProvider : IContentProvider {
+	public class TextureContentProvider : IContentProvider<Stream> {
 		public IGraphData Data { get; }
 
 		public TextureContentProvider(IGraphData data) {

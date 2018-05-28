@@ -3,7 +3,7 @@ using Graph.Data;
 
 namespace Graph.Core.Provider {
 
-	public class FontContentProvider : IContentProvider {
+	public class FontContentProvider : IContentProvider<Stream> {
 		public IGraphData Data { get; set; }
 
 		public FontContentProvider(IGraphData data) {

@@ -73,25 +73,25 @@ namespace Graph.Control.Container {
 			Items.Remove(control);
 		}
 
-		public override void Drow(GameTime gameTime, DrowOptions options) {
+		public override void Draw(GameTime gameTime, DrowOptions options) {
 			var rectangle = this.GetRectangle();
 			if (BackgroundTexture != null && rectangle != Rectangle.Empty) {
 				GameManager.SpriteBatch.Draw(BackgroundTexture.GetTexture(rectangle), this.GetRectangle(), null,
 					Color.White);
 			}
 			foreach (var item in Items) {
-				item.Drow(gameTime, options);
+				item.Draw(gameTime, options);
 			}
 			BorderDrow(gameTime, options);
-			base.Drow(gameTime, options);
+			base.Draw(gameTime, options);
 		}
 
 		private void BorderDrow(GameTime gameTime, DrowOptions options) {
 			if (!Border.IsEmpty(Border)) {
-				LeftBorderLine.Drow(gameTime, options);
-				TopBorderLine.Drow(gameTime, options);
-				RigthBorderLine.Drow(gameTime, options);
-				BottomBorderLine.Drow(gameTime, options);
+				LeftBorderLine.Draw(gameTime, options);
+				TopBorderLine.Draw(gameTime, options);
+				RigthBorderLine.Draw(gameTime, options);
+				BottomBorderLine.Draw(gameTime, options);
 			}
 		}
 

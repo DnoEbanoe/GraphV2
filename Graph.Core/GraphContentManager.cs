@@ -8,9 +8,9 @@ using Microsoft.Xna.Framework.Content;
 namespace Graph.Core {
 
 	public class GraphContentManager : ContentManager {
-		public Dictionary<string, IContentProvider> Providers { get; }
+		public Dictionary<string, IContentProvider<Stream>> Providers { get; }
 
-		public GraphContentManager(IServiceProvider serviceProvider, Dictionary<string, IContentProvider> providers) : base(serviceProvider) {
+		public GraphContentManager(IServiceProvider serviceProvider, Dictionary<string, IContentProvider<Stream>> providers) : base(serviceProvider) {
 			Providers = providers;
 		}
 

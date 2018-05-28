@@ -21,8 +21,8 @@ namespace Graph.Control.Line {
 			Texture.SetData(new[] {Color.White});
 		}
 
-		public override void Drow(GameTime gameTime, DrowOptions options) {
-			base.Drow(gameTime, options);
+		public override void Draw(GameTime gameTime, DrowOptions options) {
+			base.Draw(gameTime, options);
 			Vector2 endPosition;
 			if (End == null) {
 				endPosition = GameManager.MousePosition.Location.ToVector2();

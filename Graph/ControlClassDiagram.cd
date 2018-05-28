@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Graph.Core.GameManager">
+    <Position X="20.5" Y="0.75" Width="2" />
+    <Members>
+      <Method Name="GameManager" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Control.BaseControl">
+    <Position X="16.75" Y="4.75" Width="1.5" />
+    <Members>
+      <Method Name="BaseControl" Hidden="true" />
+    </Members>
+    <AssociationLine Name="UpdateOptions" Type="Graph.Core.UpdateOptions" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="17.375" Y="4.75" />
+        <Point X="17.375" Y="4.375" />
+        <Point X="15.49" Y="4.375" Type="JumpStart" />
+        <Point X="15.323" Y="4.375" Type="JumpEnd" />
+        <Point X="15.083" Y="4.375" Type="JumpStart" />
+        <Point X="14.917" Y="4.375" Type="JumpEnd" />
+        <Point X="14.208" Y="4.375" Type="JumpStart" />
+        <Point X="14.042" Y="4.375" Type="JumpEnd" />
+        <Point X="12.812" Y="4.375" />
+        <Point X="12.812" Y="2.997" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="DrowOptions" Type="Graph.Core.DrowOptions" ManuallyRouted="true">
+      <Path>
+        <Point X="17.766" Y="4.75" />
+        <Point X="17.766" Y="4.271" />
+        <Point X="17.333" Y="4.271" Type="JumpStart" />
+        <Point X="17.167" Y="4.271" Type="JumpEnd" />
+        <Point X="15.49" Y="4.271" Type="JumpStart" />
+        <Point X="15.323" Y="4.271" Type="JumpEnd" />
+        <Point X="15.083" Y="4.271" Type="JumpStart" />
+        <Point X="14.917" Y="4.271" Type="JumpEnd" />
+        <Point X="14.208" Y="4.271" Type="JumpStart" />
+        <Point X="14.042" Y="4.271" Type="JumpEnd" />
+        <Point X="12.895" Y="4.271" Type="JumpStart" />
+        <Point X="12.729" Y="4.271" Type="JumpEnd" />
+        <Point X="11.625" Y="4.271" />
+        <Point X="11.625" Y="1.684" />
+        <Point X="11.25" Y="1.684" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="GameManager" />
+      <Property Name="UpdateOptions" />
+      <Property Name="DrowOptions" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Graph.Core.DrowOptions">
+    <Position X="9.75" Y="1.25" Width="1.5" />
+    <Members>
+      <Method Name="DrowOptions" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Zero" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Graph.Control.Label.Label">
+    <Position X="19" Y="4.75" Width="1.5" />
+    <Members>
+      <Method Name="Label" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Control.Container.Container">
+    <Position X="14.25" Y="6.5" Width="1.5" />
+    <Members>
+      <Method Name="Container" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="BackgroundTexture" />
+      <Property Name="Margin" />
+      <Property Name="ItemMargin" />
+      <Property Name="Align" />
+      <Property Name="Border" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Items" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Graph.Control.Button.ButtonEventArgs">
+    <Position X="21" Y="7" Width="1.5" />
+    <Members>
+      <Method Name="ButtonEventArgs" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Control.Line.Line">
+    <Position X="18.75" Y="7.75" Width="1.5" />
+    <Members>
+      <Method Name="Line" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Control.Cursor.Cursor">
+    <Position X="16.75" Y="7.75" Width="1.5" />
+    <Members>
+      <Method Name="Cursor" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.UI.GraphLine">
+    <Position X="18.75" Y="10.5" Width="1.5" />
+    <Members>
+      <Field Name="_endPoint" Hidden="true" />
+      <Field Name="_startPoint" Hidden="true" />
+      <Method Name="GraphLine" Hidden="true" />
+    </Members>
+    <AssociationLine Name="StartPoint" Type="Graph.Control.IControl" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="18.75" Y="11.875" />
+        <Point X="17.25" Y="11.875" />
+        <Point X="17.25" Y="9.617" />
+        <Point X="16.5" Y="9.617" />
+        <Point X="16.5" Y="4.358" />
+        <Point X="17.25" Y="4.358" />
+        <Point X="17.25" Y="3.983" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAQgAAAAAAAAAAAAABIABAAAAAAAAiAAo=</HashCode>
+      <FileName>UI\GraphLine.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="StartPoint" />
+      <Property Name="EndPoint" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Graph.UI.GraphPoint">
+    <Position X="15.5" Y="13" Width="1.5" />
+    <Members>
+      <Field Name="_number" Hidden="true" />
+      <Method Name="GraphPoint" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>UI\GraphPoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Graph.UI.GraphPanel">
+    <Position X="13.75" Y="10" Width="1.5" />
+    <Members>
+      <Field Name="_isClick" Hidden="true" />
+      <Method Name="GraphPanel" Hidden="true" />
+    </Members>
+    <AssociationLine Name="CurrentLine" Type="Graph.UI.GraphLine" ManuallyRouted="true">
+      <Path>
+        <Point X="15.25" Y="12.615" />
+        <Point X="15.631" Y="12.615" />
+        <Point X="15.631" Y="12.854" />
+        <Point X="16.167" Y="12.854" Type="JumpStart" />
+        <Point X="16.333" Y="12.854" Type="JumpEnd" />
+        <Point X="17.595" Y="12.854" />
+        <Point X="17.595" Y="12.615" />
+        <Point X="18.75" Y="12.615" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAwCAgAAAAAQAAAAAIAAAAACAAQAAAAAAAAgAAAAAgA=</HashCode>
+      <FileName>UI\GraphPanel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PointingPath" />
+      <Property Name="CurrentLine" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Graph.Control.TextEdit.TextEdit">
+    <Position X="12" Y="10" Width="1.5" />
+    <Members>
+      <Method Name="TextEdit" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Control.Container.Margin">
+    <Position X="9.75" Y="6" Width="1.5" />
+    <Members>
+      <Method Name="Margin" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Control.Border">
+    <Position X="9.75" Y="2.5" Width="1.5" />
+    <Members>
+      <Method Name="Border" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Control.Texture.BaseTexture">
+    <Position X="12" Y="8" Width="1.5" />
+    <Members>
+      <Method Name="BaseTexture" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Control.Button.Button">
+    <Position X="15.5" Y="10" Width="1.5" />
+    <Members>
+      <Method Name="Button" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Core.GameObjectClickEventArgs">
+    <Position X="21" Y="3.75" Width="1.5" />
+    <Members>
+      <Method Name="GameObjectClickEventArgs" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Control.ControlClickEventArgs">
+    <Position X="21" Y="5.5" Width="1.5" />
+    <Members>
+      <Method Name="ControlClickEventArgs" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Control.Helpers.ControlHelper">
+    <Position X="12.75" Y="13" Width="2.25" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Graph.Control.Texture.ColorTexture">
+    <Position X="9.75" Y="8" Width="1.5" />
+    <Members>
+      <Method Name="ColorTexture" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="GameManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Graph.Control.Texture.GradientTexture">
+    <Position X="9.75" Y="10" Width="1.5" />
+    <Members>
+      <Method Name="GradientTexture" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="GameManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Graph.Control.Texture.ImageTexture">
+    <Position X="9.75" Y="12.25" Width="1.5" />
+    <AssociationLine Name="GameManager" Type="Graph.Core.GameManager" ManuallyRouted="true">
+      <Path>
+        <Point X="11.25" Y="13.285" />
+        <Point X="12.235" Y="13.285" />
+        <Point X="12.235" Y="12.827" />
+        <Point X="16.167" Y="12.827" Type="JumpStart" />
+        <Point X="16.333" Y="12.827" Type="JumpEnd" />
+        <Point X="18.688" Y="12.827" />
+        <Point X="18.688" Y="3.293" />
+        <Point X="20.969" Y="3.293" />
+        <Point X="20.969" Y="3.392" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="GameManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Struct Name="Graph.Core.UpdateOptions">
+    <Position X="12.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Zero" />
+    </ShowAsAssociation>
+  </Struct>
+  <Interface Name="Graph.Core.IGameObject">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="GameManager" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="Graph.Control.IControl">
+    <Position X="16.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Enum Name="Graph.Control.Container.ContentAlign">
+    <Position X="9.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

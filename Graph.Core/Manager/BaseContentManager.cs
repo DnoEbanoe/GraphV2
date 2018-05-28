@@ -25,7 +25,6 @@ namespace Graph.Core.Manager {
 			if (Items.ContainsKey(name)) {
 				return Items[name];
 			}
-
 			var item = ContentManager.Load<T>(name);
 			Items.Add(name, item);
 			return item;

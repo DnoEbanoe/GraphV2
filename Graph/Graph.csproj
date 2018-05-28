@@ -85,11 +85,15 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="app.manifest" />
+    <None Include="ControlClassDiagram.cd" />
+    <None Include="CoreClassDiagram.cd" />
+    <None Include="DataClassDiagram.cd" />
     <None Include="GraphClassDiagram.cd" />
     <None Include="graphDb.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+    <None Include="ResourceClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Graph.Control\Graph.Control.csproj">

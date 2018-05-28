@@ -15,9 +15,9 @@ namespace Graph.Control.Label {
 			Font = GameManager.FonsManager.Get("font:standart");
 		}
 
-		public override void Drow(GameTime gameTime, DrowOptions options) {
+		public override void Draw(GameTime gameTime, DrowOptions options) {
 			GameManager.SpriteBatch.DrawString(Font, Text, Position, Color);
-			base.Drow(gameTime, options);
+			base.Draw(gameTime, options);
 		}
 	}
 }

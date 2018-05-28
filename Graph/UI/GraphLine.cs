@@ -36,9 +36,9 @@ namespace Graph.UI
 
 		
 
-		public override void Drow(GameTime gameTime, DrowOptions options) {
+		public override void Draw(GameTime gameTime, DrowOptions options) {
 			GameManager.SpriteBatch.DrawString(Font, Distance.ToString("F1"), TextPosition, Color.White);
-			base.Drow(gameTime, options);
+			base.Draw(gameTime, options);
 		}
 
 		public override void Update(GameTime gameTime, UpdateOptions options) {

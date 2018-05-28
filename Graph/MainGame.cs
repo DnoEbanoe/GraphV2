@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Graph.Component;
 using Graph.Control;
@@ -25,16 +26,17 @@ namespace Graph {
 		public GraphPanel GraphPanel { get; set; }
 		public Dijstra Dijstra { get; set; } = new Dijstra();
 		private Label MessageLabel { get; set; }
-		public IGraphData GraphData { get; set; } = new EFGraphData();
+		public IGraphData GraphData { get; set; } = new EFGraphData(SysSettings.CiltureName);
 
 		public MainGame() {
 			GameManager = new GameManager {GraphicsDeviceManager = new GraphicsDeviceManager(this)};
-			GameManager.ContentManager = new GraphContentManager(Services, new Dictionary<string, IContentProvider> {
+			GameManager.ContentManager = new GraphContentManager(Services, new Dictionary<string, IContentProvider<Stream>> {
 					{"font", new FontContentProvider(GraphData)},
 					{"image", new TextureContentProvider(GraphData)}
 				});
 			GameManager.FonsManager = new BaseContentManager<SpriteFont>(GameManager.ContentManager);
 			GameManager.TextureManager = new BaseContentManager<Texture2D>(GameManager.ContentManager);
+			GameManager.StringProvider = new StringContentProvider(GraphData);
 			_gameEngine = new GameEngine(GameManager);
 			Content.RootDirectory = "Content";
 		}
@@ -112,7 +114,7 @@ namespace Graph {
 		private void SearchPath() {
 			string message;
 			if (GraphPanel.PointingPath == null) {
-				message = "Specify the end point!!!";
+				message = GameManager.StringProvider.Get("SpecifyPoint");
 			} else {
 				var points = GraphPanel.Items.GetElements("point").Cast<GraphPoint>().ToList();
 				var lines = GraphPanel.Items.GetElements("line").Cast<GraphLine>().ToList();
@@ -127,11 +129,11 @@ namespace Graph {
 				var pointingPathNumber = ((GraphPoint) GraphPanel.PointingPath).Number - 1;
 				var distance = rez[pointingPathNumber];
 				if (distance == null) {
-					message = "Path not found";
+					message = GameManager.StringProvider.Get("PathNotFound");
 				}
 				else {
 					var path = ValidatePath(distance.Path.Select(i => i + 1)).ToList();
-					message = $"Shortcut: {string.Join(" --> ", path)}. Distance: {distance.Value:F1}";
+					message = string.Format(GameManager.StringProvider.Get("ShortcutDistanceFormat"), string.Join(" --> ", path), distance.Value.ToString("F1"));
 					for (int i = 1; i < path.Count; i++) {
 						var startI = path[i - 1];
 						var endI = path[i];
@@ -169,7 +171,7 @@ namespace Graph {
 		protected override void Draw(GameTime gameTime) {
 			GraphicsDevice.Clear(Color.CornflowerBlue);
 			GameManager.SpriteBatch.Begin();
-			_gameEngine.Drow(gameTime);
+			_gameEngine.Draw(gameTime);
 			GameManager.SpriteBatch.End();
 			base.Draw(gameTime);
 		}

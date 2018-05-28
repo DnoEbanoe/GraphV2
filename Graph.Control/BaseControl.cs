@@ -13,7 +13,7 @@ namespace Graph.Control {
 		protected DrowOptions DrowOptions { get; set; }
 
 
-		public virtual void Drow(GameTime gameTime, DrowOptions options) {
+		public virtual void Draw(GameTime gameTime, DrowOptions options) {
 			DrowOptions = options;
 		}
 
