@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseControl.cs" />
-    <Compile Include="Border.cs" />
+    <Compile Include="Container\Border.cs" />
     <Compile Include="Button\Button.cs" />
     <Compile Include="Button\ButtonEventArgs.cs" />
     <Compile Include="Container\Container.cs" />

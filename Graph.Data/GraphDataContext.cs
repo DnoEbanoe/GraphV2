@@ -14,7 +14,7 @@ namespace Graph.Data {
 		public DbSet<Font> Fonts { get; set; }
 		public DbSet<LocalizableString> Strings { get; set; }
 
-		public GraphDataContext() : base("SqliteConnection") {
+		public GraphDataContext() : base("DBConnection") {
 
 		}
 	}
