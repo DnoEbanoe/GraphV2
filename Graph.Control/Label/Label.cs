@@ -8,7 +8,6 @@ namespace Graph.Control.Label {
 		public string Text { get; set; } = string.Empty;
 		public SpriteFont Font { get; set; }
 		public virtual Color Color { get; set; }
-
 		public override Vector2 Size => Font.MeasureString(Text ?? string.Empty);
 
 		public Label(GameManager gameManager) : base(gameManager) {

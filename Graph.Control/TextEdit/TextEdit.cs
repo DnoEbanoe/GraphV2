@@ -1,9 +1,6 @@
-﻿using System;
-using System.Runtime.Remoting.Messaging;
-using Graph.Core;
+﻿using Graph.Core;
 using Graph.Core.Helper;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace Graph.Control.TextEdit {
@@ -29,8 +26,7 @@ namespace Graph.Control.TextEdit {
 			if (mouseState.LeftButton == ButtonState.Pressed) {
 				if (this.GetRectangle().Collide(GameManager.MousePosition)) {
 					_isFocused = true;
-				}
-				else {
+				} else {
 					_isFocused = false;
 				}
 			}
@@ -51,11 +47,9 @@ namespace Graph.Control.TextEdit {
 			var newText = (string) text.Clone();
 			if (key > Keys.A && key < Keys.Z) {
 				newText += (char) key;
-			}
-			else if (key > Keys.D0 && key < Keys.D9) {
+			} else if (key > Keys.D0 && key < Keys.D9) {
 				newText += (char) key;
-			}
-			else if (key == Keys.Back) {
+			} else if (key == Keys.Back) {
 				newText = newText.Remove(newText.Length - 1, 1);
 			}
 			return newText;

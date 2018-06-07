@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Graph.Component;
 using Graph.Control;
 using Graph.Control.Button;
 using Graph.Control.Container;

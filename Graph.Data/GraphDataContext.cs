@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
 using Graph.Data.Entity;
 
 namespace Graph.Data {
@@ -14,8 +9,6 @@ namespace Graph.Data {
 		public DbSet<Font> Fonts { get; set; }
 		public DbSet<LocalizableString> Strings { get; set; }
 
-		public GraphDataContext() : base("DBConnection") {
-
-		}
+		public GraphDataContext() : base("DBConnection") {}
 	}
 }

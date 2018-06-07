@@ -51,8 +51,7 @@ namespace Graph.UI {
 				this.Remove(point);
 				var i = 1;
 				if (Items.Count > 0) {
-					foreach (var control in Items.GetElements("point").Cast<GraphPoint>().OrderBy(control => control.Number))
-					{
+					foreach (var control in Items.GetElements("point").Cast<GraphPoint>().OrderBy(control => control.Number)) {
 						control.Number = i;
 						i++;
 					}
@@ -65,7 +64,6 @@ namespace Graph.UI {
 			if (Items.GetElements(newRectangle, "collade-item").Any()) {
 				return;
 			}
-
 			var points = Items.GetElements("point");
 			var itemNumber = points.Count == 0 ? 1 : points.Cast<GraphPoint>().Max(graphPoint => graphPoint.Number) + 1;
 			var point = new GraphPoint(GameManager) {
@@ -88,8 +86,7 @@ namespace Graph.UI {
 					CurrentLine.StartPoint = point;
 					CurrentLine.Tags.Add("line");
 					this.Add(CurrentLine);
-				}
-				else {
+				} else {
 					CurrentLine.EndPoint = point;
 					CurrentLine = null;
 				}
@@ -101,9 +98,9 @@ namespace Graph.UI {
 			var point = Items.GetElements(newRectangle, "point").FirstOrDefault();
 			if (point != null) {
 				if (PointingPath != null) {
-					((Button)PointingPath).Border = new Border();
+					((Button) PointingPath).Border = new Border();
 				}
-				((Button)point).Border = new Border() { Color = Color.Yellow, Width = 2 };
+				((Button) point).Border = new Border() {Color = Color.Yellow, Width = 2};
 				PointingPath = point;
 			}
 		}

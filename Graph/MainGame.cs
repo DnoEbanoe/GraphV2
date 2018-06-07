@@ -20,12 +20,12 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Graph {
 
-	public class MainGame : Game
-	{
+	public class MainGame : Game {
 		public readonly GameEngine _gameEngine;
 		public GameManager GameManager { get; set; }
 		public GraphPanel GraphPanel { get; set; }
 		public Dijstra Dijstra { get; set; } = new Dijstra();
+		public GraphBuilder GraphBuilder { get; private set; }
 		private Label MessageLabel { get; set; }
 		public IGraphData GraphData { get; set; } = new EFGraphData(SysSettings.CiltureName);
 
@@ -66,7 +66,7 @@ namespace Graph {
 				Border = new Border{Color = Color.Gold, Width = 3}
 			};
 			_gameEngine.Add(GraphPanel);
-			new GraphBuilder(GameManager, GraphPanel);
+			GraphBuilder = new GraphBuilder(GameManager, GraphPanel);
 
 			#endregion
 
@@ -85,20 +85,16 @@ namespace Graph {
 			if (button.Tags.Contains("IsAddPoint")) {
 				MainMenu.ResetSysSettings();
 				SysSettings.IsAddPoint = true;
-			}
-			else if (button.Tags.Contains("IsAddLine")) {
+			} else if (button.Tags.Contains("IsAddLine")) {
 				MainMenu.ResetSysSettings();
 				SysSettings.IsAddLine = true;
-			}
-			else if (button.Tags.Contains("IsRemovePoint")) {
+			} else if (button.Tags.Contains("IsRemovePoint")) {
 				MainMenu.ResetSysSettings();
 				SysSettings.IsRemovePoint = true;
-			}
-			else if (button.Tags.Contains("IsPointingPath")) {
+			} else if (button.Tags.Contains("IsPointingPath")) {
 				MainMenu.ResetSysSettings();
 				SysSettings.IsPointingPath = true;
-			}
-			else if (button.Tags.Contains("SearchPath")) {
+			} else if (button.Tags.Contains("SearchPath")) {
 				MainMenu.ResetSysSettings();
 				ResetPreviousPath();
 				SearchPath();
@@ -131,8 +127,7 @@ namespace Graph {
 				var distance = rez[pointingPathNumber];
 				if (distance == null) {
 					message = GameManager.StringProvider.Get("PathNotFound");
-				}
-				else {
+				} else {
 					var path = ValidatePath(distance.Path.Select(i => i + 1)).ToList();
 					message = string.Format(GameManager.StringProvider.Get("ShortcutDistanceFormat"), string.Join(" --> ", path), distance.Value.ToString("F1"));
 					for (int i = 1; i < path.Count; i++) {

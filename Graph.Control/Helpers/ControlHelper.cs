@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Graph.Core.Helper;
 using Microsoft.Xna.Framework;
 
-namespace Graph.Control.Helpers
-{
-	public static class ControlHelper
-	{
+namespace Graph.Control.Helpers {
+	public static class ControlHelper {
 		public static List<IControl> GetElements(this IEnumerable<IControl> items, string tag) {
 			return items.Where(control => control.Tags.Contains(tag)).ToList();
 		}

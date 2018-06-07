@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Graph.Control.Texture;
 using Graph.Core;
 using Graph.Core.Helper;
@@ -19,10 +18,8 @@ namespace Graph.Control.Container {
 			set {
 				_border = value;
 				if (value != null
-				    && LeftBorderLine != null
-				    && TopBorderLine != null
-				    && RigthBorderLine != null
-				    && BottomBorderLine != null) {
+				    && LeftBorderLine != null && TopBorderLine != null
+				    && RigthBorderLine != null && BottomBorderLine != null) {
 					LeftBorderLine.Color = TopBorderLine.Color = RigthBorderLine.Color = BottomBorderLine.Color = value.Color;
 					LeftBorderLine.Width = TopBorderLine.Width = RigthBorderLine.Width = BottomBorderLine.Width = value.Width;
 				}
@@ -43,7 +40,6 @@ namespace Graph.Control.Container {
 						size += item.Size + item.Position - Position;
 					}
 				}
-
 				return new Vector2(size.X + (Margin.Right + Margin.Left), size.Y + (Margin.Bottom + Margin.Top));
 			}
 			set { base.Size = value; }
@@ -97,21 +93,21 @@ namespace Graph.Control.Container {
 
 		private void UpdateBorder() {
 			if (!Border.IsEmpty(Border)) {
-				LeftBorderLine.Start = this.Position;
-				LeftBorderLine.End = this.Position + new Vector2(0, this.Size.Y);
-				TopBorderLine.Start = this.Position;
-				TopBorderLine.End = this.Position + new Vector2(this.Size.X, 0);
-				RigthBorderLine.Start = this.Position + new Vector2(this.Size.X, 0);
-				RigthBorderLine.End = this.Position + this.Size;
-				BottomBorderLine.Start = this.Position + this.Size;
-				BottomBorderLine.End = this.Position + new Vector2(0, this.Size.Y);
+				LeftBorderLine.Start = Position;
+				LeftBorderLine.End = Position + new Vector2(0, Size.Y);
+				TopBorderLine.Start = Position;
+				TopBorderLine.End = Position + new Vector2(Size.X, 0);
+				RigthBorderLine.Start = Position + new Vector2(Size.X, 0);
+				RigthBorderLine.End = Position + Size;
+				BottomBorderLine.Start = Position + Size;
+				BottomBorderLine.End = Position + new Vector2(0, Size.Y);
 			}
 		}
 
 		public override void Update(GameTime gameTime, UpdateOptions options) {
 			var itemStartPosition = Position + new Vector2(ItemMargin.Left + Margin.Left, ItemMargin.Top + Margin.Top) - UpdateOptions.Position;
 			foreach (var item in Items) {
-				item.Update(gameTime, options + new UpdateOptions() {Position = itemStartPosition});
+				item.Update(gameTime, options + new UpdateOptions {Position = itemStartPosition});
 			}
 			base.Update(gameTime, options);
 			UpdateBorder();

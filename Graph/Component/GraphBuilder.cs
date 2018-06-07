@@ -20,14 +20,11 @@ namespace Graph.Component {
 			if (gameObjectClickEventArgs.MouseState.LeftButton == ButtonState.Pressed) {
 				if (SysSettings.IsAddPoint) {
 					GraphPanel.AddPoint(newPosition);
-				}
-				else if (SysSettings.IsAddLine) {
+				} else if (SysSettings.IsAddLine) {
 					GraphPanel.AddLine(newPosition);
-				}
-				else if (SysSettings.IsPointingPath) {
+				} else if (SysSettings.IsPointingPath) {
 					GraphPanel.SetPointingPath(newPosition);
-				}
-				else if (SysSettings.IsRemovePoint) {
+				} else if (SysSettings.IsRemovePoint) {
 					GraphPanel.RepovePoint(newPosition);
 				}
 			}

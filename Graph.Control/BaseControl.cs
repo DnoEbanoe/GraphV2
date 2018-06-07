@@ -5,13 +5,12 @@ using Microsoft.Xna.Framework;
 namespace Graph.Control {
 
 	public abstract class BaseControl : IControl {
-		private Vector2 _position;
-		private Vector2 _size;
+		private Vector2 _position = Vector2.Zero;
+		private Vector2 _size = Vector2.Zero;
 		public GameManager GameManager { get; set; }
 		public List<string> Tags { get; set; } = new List<string>();
 		protected UpdateOptions UpdateOptions { get; set; }
 		protected DrowOptions DrowOptions { get; set; }
-
 
 		public virtual void Draw(GameTime gameTime, DrowOptions options) {
 			DrowOptions = options;
@@ -33,10 +32,6 @@ namespace Graph.Control {
 
 		public BaseControl(GameManager gameManager) {
 			GameManager = gameManager;
-			Position = Vector2.Zero;
-			Size = Vector2.Zero;
 		}
-
-		
 	}
 }

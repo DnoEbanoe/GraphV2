@@ -6,15 +6,10 @@ namespace Graph.Core.Manager {
 
 	public class BaseContentManager<T> : IContentManager<T> {
 		protected ContentManager ContentManager { get; }
-		protected Dictionary<string, T> Items { get; set; }
+		protected Dictionary<string, T> Items { get; set; } = new Dictionary<string, T>();
 
 		public BaseContentManager(ContentManager contentManager) {
 			ContentManager = contentManager;
-			InitializeItems();
-		}
-
-		public virtual void InitializeItems() {
-			Items = new Dictionary<string, T>();
 		}
 
 		public virtual void Add(string name, T item) {
